@@ -16,13 +16,9 @@
 
 ---
 
-<!--
-  强烈建议放一张对比图在这里。最有说服力的形式：
-  左：原图（透明底，配棋盘格背景）；右：放大 4 倍后（同样棋盘格，透明仍在）。
-  一定要用棋盘格 —— 白底看不出透明有没有被保住。
+![透明对比](docs/compare.png)
 
-  ![透明对比](docs/compare.png)
--->
+<sub>①② 同尺寸对比；③④ 是同一块区域的像素级对比 —— 放大后边缘依旧平滑，没有白边或黑边。</sub>
 
 ## 三步开始
 
@@ -55,6 +51,30 @@
 关于透明多说一句：**很多在线工具和简单脚本会把透明区域填成黑底或白底**。
 本项目的做法是把 alpha 拆出来单独放大、再合回去 ——
 思路和 Real-ESRGAN 的 `--alpha_upsampler` 是同一类，这也是这个领域里的通行解法。
+
+---
+
+## 为什么不用现成工具
+
+先说清楚：**它们在很多方面确实更强。**
+
+- [Upscayl](https://github.com/upscayl) 装个 app 就能用，而且 N 卡 / A 卡 / 核显都支持
+- [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) 生态极其成熟，参数和模型多得多
+- [chaiNNer](https://github.com/chaiNNer-org/chaiNNer) 能搭节点式流水线，比这里灵活得多
+
+本项目只在几件很具体的事上省心一些：
+
+| | 现成工具 | 本项目 |
+|---|---|---|
+| 显存不足 | 通常直接报错退出 | 自动降档重试，不会甩一堆红字 |
+| 跑完的内存 | 常常一直占着不放 | 每批释放，退出时全部归还 |
+| 界面语言 | 基本都是英文 | 全中文，连报错也是 |
+| 格式 | 多数只吃 PNG / JPG | PNG / JPEG / WebP 进出，还能「与原图同格式」 |
+
+**本项目在算法上没有任何创新 —— 它解决的是「用起来」的问题。**
+
+核心模型是 [VOSR 2.0](https://huggingface.co/CSWRY/VOSR)，功劳归原作者。
+这里做的只是把它包成一件不用折腾就能用的工具。
 
 ---
 
@@ -250,6 +270,31 @@ Step 3 starts a local web UI bound to `127.0.0.1` only. In it you can:
 On transparency: **many online tools and simple scripts flatten transparent areas onto
 black or white.** This project splits alpha out, upscales it separately and composites it
 back — the same family of approach as Real-ESRGAN's `--alpha_upsampler`.
+
+### Why not just use an existing tool?
+
+To be clear up front: **they are better than this project in many ways.**
+
+- [Upscayl](https://github.com/upscayl) installs like a normal app and works on NVIDIA, AMD,
+  and integrated GPUs
+- [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) has a far richer ecosystem and many
+  more models and options
+- [chaiNNer](https://github.com/chaiNNer-org/chaiNNer) gives you a node graph, which is much
+  more flexible
+
+This project is only less annoying in a few specific places:
+
+| | Typical existing tools | This project |
+|---|---|---|
+| Out of VRAM | Usually an error and a stack trace | Downgrades and retries automatically |
+| Memory after a run | Often stays held | Released per batch, fully on exit |
+| UI language | Mostly English | Chinese throughout, error messages included |
+| Formats | Usually PNG / JPG only | PNG / JPEG / WebP in, "match source" out |
+
+**There is no algorithmic innovation here — this project solves "getting it to run".**
+
+The model is [VOSR 2.0](https://huggingface.co/CSWRY/VOSR); the credit belongs to its authors.
+All this does is wrap it into something you can use without fighting the toolchain.
 
 ### Supported formats
 

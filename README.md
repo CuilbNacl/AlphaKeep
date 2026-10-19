@@ -207,6 +207,8 @@ python scripts/download_weights.py
 
 本仓库的**代码**采用 [Apache-2.0](LICENSE)，衍生自下面两个同为 Apache-2.0 的项目：
 
+完整归属声明见 [NOTICE](NOTICE)。
+
 - [ComfyUI-VOSR2](https://github.com/ylchen333/ComfyUI-VOSR2) — 把 VOSR 接入 ComfyUI 的节点包
 - [VOSR](https://github.com/cswry/VOSR) — CVPR 2026，一步式 1.4B DiT 超分模型
 
@@ -355,6 +357,8 @@ in the UI, or close the console window, and everything is returned.
 ### License and credits
 
 The **code** in this repository is [Apache-2.0](LICENSE), derived from two Apache-2.0 projects:
+
+See [NOTICE](NOTICE) for the full attribution.
 
 - [ComfyUI-VOSR2](https://github.com/ylchen333/ComfyUI-VOSR2)
 - [VOSR](https://github.com/cswry/VOSR) (CVPR 2026, one-step 1.4B DiT super-resolution)

@@ -1,3 +1,29 @@
+# ---- 模型权重：绝对不能进仓库（约 6.5 GB）----
+models/
+*.safetensors
+*.pth
+*.pt
+*.ckpt
+*.bin
+
+# ---- 打包进去的 Python 运行时（约 250 MB + torch 3 GB）----
+python/
+
+# ---- 运行产物 ----
+vosr2_input/
+vosr2_output/
+work/
+_界面设置.json
+*.log
+raw.log
+
+# ---- 我本地调试时生成的 ----
+_vosr2_driver.py
+_vosr2_standalone.py
+download_weights.py
+一键放大.bat.bak
+*.part
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

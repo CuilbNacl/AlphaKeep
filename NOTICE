@@ -1,0 +1,51 @@
+AlphaKeep — 透明放大镜
+Copyright 2026 AlphaKeep contributors
+
+本产品包含由第三方开发的软件，特此声明归属：
+This product includes software developed by third parties.
+
+================================================================
+代码 / Code
+================================================================
+
+  ComfyUI-VOSR2
+    https://github.com/ylchen333/ComfyUI-VOSR2
+    Copyright (c) its authors
+    Licensed under the Apache License, Version 2.0
+
+  VOSR
+    https://github.com/cswry/VOSR
+    Copyright (c) Jingfeng Yao, HUST-VL
+    Licensed under the Apache License, Version 2.0
+
+  本项目的 vosr2_standalone.py 移植并修改了上述两个项目。
+  具体改动见该文件头部的声明，以及文件内的中文注释。
+  This project ports and modifies the two projects above.
+  See the header of vosr2_standalone.py for the list of changes.
+
+================================================================
+模型权重 / Model weights
+================================================================
+
+  权重不随本仓库分发，需由使用者自行下载，其版权与许可归原作者：
+  Model weights are NOT distributed with this repository.
+
+  VOSR 2.0 checkpoints
+    https://huggingface.co/CSWRY/VOSR
+    https://modelscope.cn/models/LULALULALU/VOSR_CKPT
+
+  DINOv2 ViT-L/14 (facebookresearch/dinov2)
+    https://github.com/facebookresearch/dinov2
+    注意：DINOv2 权重的许可条款与代码不同，使用前请自行确认。
+    Note: the DINOv2 model weights carry their own terms, separate from the code.
+
+  Qwen-Image VAE (2D variant)
+    https://huggingface.co/Qwen
+
+================================================================
+免责 / Disclaimer
+================================================================
+
+  本项目为第三方封装，与 VOSR 作者及 Meta 无关联、未获其背书。
+  This is an unofficial third-party wrapper. It is not affiliated with or
+  endorsed by the VOSR authors or Meta.
